@@ -1,0 +1,38 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="Здоровая осанка" Height="500" Width="700" Background="{x:Null}" WindowStyle="ThreeDBorderWindow" ResizeMode="NoResize">
+    <Grid>
+        <Image Margin="-31.98,0,-17.52,0" Source="108533-Adobe_Illustrator-landscape-minimalism.png" Stretch="Fill"/>
+        <Image Margin="-29.98,-11,144.48,191" Source="desktop_dialog.png" Stretch="Fill"/>
+        <Image Margin="-29.98,199.5,144.48,-6" Source="desktop_dialog.png" Stretch="Fill"/>
+        <Image Margin="469.02,-11,-31.02,-6" Source="desktop_dialog2.png" Stretch="Fill"/>
+        <TextBlock HorizontalAlignment="Left" Height="23" Margin="271,426,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" TextAlignment="Center"><Run Foreground="White" FontWeight="Bold" FontSize="14" Text="© РГСУ. 2017 г"/><Run Foreground="White" FontSize="14" Text="."/><LineBreak/><Span Foreground="White" FontSize="14" FontFamily="Arial"><Run/></Span></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="29" Margin="31,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115" FontWeight="Light"><Span Foreground="Black" FontSize="20" FontFamily="Segoe UI"><Run Text="Дистанция"/></Span></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="70" Margin="46,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="18"><Span Foreground="#FF95989A" FontFamily="Arial"><Run Text="На данный момент вы сидите"/></Span></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="58" Margin="240,67.627,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" FontWeight="Medium"><Span Foreground="#FFA00909" FontSize="40" FontFamily="Segoe UI"><Run Text="Близко"/></Span></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="23" Margin="366,91.627,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" RenderTransformOrigin="0.833,0.259"><Span Foreground="#FF95989A" FontSize="20" FontFamily="Arial"><Run Text=" , но"/></Span></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="70" Margin="266,112.837,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130.02"><Run Foreground="#FF13A200" FontSize="40" Text="Ровно"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="29" Margin="31,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="234" FontWeight="Light"><Span Foreground="#FF5C5A5A" FontSize="20" FontFamily="Segoe UI"><Run Text="Температура, влажность"/></Span></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="63" Margin="46,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="18"><Span Foreground="#FF95989A" FontFamily="Arial"><Run Text="На данный момент "/></Span></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="19" Margin="200,351,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="16" FontWeight="Thin"><Span Foreground="#FF404040" FontFamily="Segoe UI"><Run Text="Температура"/></Span></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="37" Margin="351,351,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130.02" FontSize="16" FontWeight="Thin"><Span Foreground="#FF404040" FontFamily="Segoe UI"><Run Text="Влажность"/></Span></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="73" Margin="189,287,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="111" FontWeight="Thin" TextAlignment="Center" RenderTransformOrigin="0.1,0.534"><Run Foreground="#FF005796" FontSize="45.3333333333333" Text="0"/><Run Foreground="#FF005796" FontSize="45.3333333333333" Text="0"/><Run Foreground="#FF005796" FontSize="45.3333333333333" Text="°C"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="73" Margin="345,287,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" FontWeight="Thin" TextAlignment="Center" Foreground="#FF8F7D2C"><Run FontSize="45.3333333333333" Text="0"/><Run FontSize="45.3333333333333" Text="0"/><Run FontSize="45.3333333333333" Text="%"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="29" Margin="525,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" FontWeight="Light"><Run FontSize="20" Text="Контрастность"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="58" Margin="525,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="47" FontWeight="Thin" TextAlignment="Justify"><Span Foreground="#FF95989A" FontFamily="Arial"><Run Text="На данный момент яркость"/></Span></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="73" Margin="577,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" FontWeight="Thin" TextAlignment="Center"><Run Foreground="#FF005796" FontSize="45.3333333333333" Text="0"/><Run Foreground="#FF005796" FontSize="45.3333333333333" Text="0"/><Run Foreground="#FF005796" FontSize="45.3333333333333" Text="%"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="73" Margin="577,159.733,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" FontWeight="Thin" TextAlignment="Center"><Run Foreground="#FF005796" FontSize="45.3333333333333" Text="0"/><Run Foreground="#FF005796" FontSize="45.3333333333333" Text="0"/><Run Foreground="#FF005796" FontSize="45.3333333333333" Text="%"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="19" Margin="590,135.733,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" FontSize="16" FontWeight="Thin"><Run Foreground="#FF404040" Text="Комнаты"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="19" Margin="586,221.733,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="71" FontSize="16" FontWeight="Thin"><Run Foreground="#FF404040" Text="Монитора"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="29" Margin="522,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" FontWeight="Light" FontSize="14" TextAlignment="Center"><Run Text="В каком вы классе?"/></TextBlock>
+        <Slider HorizontalAlignment="Left" Margin="541.52,314.96,0,0" VerticalAlignment="Top" Width="97"/>
+        <Label Content="1" HorizontalAlignment="Left" Margin="585,284,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Height="37" Margin="528,351,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80.48" FontSize="14" FontWeight="Thin"><Run Text="До конца урока "/><Run Text="минут"/><Run Text=":"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="26" Margin="630.48,354,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="15.52" FontSize="22" Foreground="#FFDE0000"/>
+    </Grid>
+</Window>
