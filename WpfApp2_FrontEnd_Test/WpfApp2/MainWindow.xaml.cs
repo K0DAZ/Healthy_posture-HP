@@ -44,6 +44,7 @@ namespace WpfApp2
             //Thread myThread5 = new Thread(StepGorb);
             Thread myThread6 = new Thread(OutContrastRoom);
             Thread myThread7 = new Thread(OutContrastDisplay);
+            Thread myThread8 = new Thread(TIMEWORK);
 
             myThread1.Start();
             myThread2.Start();
@@ -52,6 +53,15 @@ namespace WpfApp2
             myThread5.Start();
             myThread6.Start();
             myThread7.Start();
+            myThread8.Start();
+
+
+            slider1.Minimum = 1;
+            slider1.Maximum = 11;
+            slider1.Value = 1;
+            slider1.SmallChange = 1;
+            slider1.LargeChange = 1;
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -72,12 +82,18 @@ namespace WpfApp2
                         {
                             case 0:
                                 Distance_range.Text = "Нормально";
+                                Distance_range.Foreground = Brushes.Green;
+                                Distance_range.FontSize = 38;
                                 break;
                             case 1:
                                 Distance_range.Text = "Далеко";
+                                Distance_range.Foreground = Brushes.Red;
+                                Distance_range.FontSize = 40;
                                 break;
                             case 2:
                                 Distance_range.Text = "Близко";
+                                Distance_range.Foreground = Brushes.Red;
+                                Distance_range.FontSize = 40;
                                 break;
                         }
                         break;
@@ -86,20 +102,21 @@ namespace WpfApp2
                         {
                             case 0:
                                 Distance_landing.Text = "Ровно";
+                                Distance_landing.Foreground = Brushes.Green;
                                 break;
                             case 1:
                                 Distance_landing.Text = "Криво";
-                                break;
+                                Distance_landing.Foreground = Brushes.Red;                                break;
                         }
                         break;
                     case 3:
-                        if ((Distance_landing.Text == "Ровно") && (Distance_range.Text == "Близко") || (Distance_landing.Text == "Ровно") && (Distance_range.Text == "Далеко"))
+                        if (((Distance_landing.Text == "Ровно") && (Distance_range.Text == "Близко")) || ((Distance_landing.Text == "Ровно") && (Distance_range.Text == "Далеко")))
                         {
-                            Distance_or_and.Text = ", но";
+                            Distance_or_and.Text = "  но";
                         }
                         else if ((Distance_landing.Text == "Криво") && (Distance_range.Text == "Нормально"))
                         {
-                            Distance_or_and.Text = ", но";
+                            Distance_or_and.Text = "  но";
                         }
                         else
                         {
@@ -119,6 +136,43 @@ namespace WpfApp2
                         contrast_display.Text = Convert.ToString(r.Next(100) + "%");
                         break;
                     case 8:
+                        slider_age_text.Text = Convert.ToString(Math.Round(slider1.Value));
+                        switch (Math.Round(slider1.Value))
+                        {
+                            case 1:
+                                minutes_for_end.Text = "10";
+                                break;
+                            case 2:
+                                minutes_for_end.Text = "10";
+                                break;
+                            case 3:
+                                minutes_for_end.Text = "15";
+                                break;
+                            case 4:
+                                minutes_for_end.Text = "20";
+                                break;
+                            case 5:
+                                minutes_for_end.Text = "25";
+                                break;
+                            case 6:
+                                minutes_for_end.Text = "30";
+                                break;
+                            case 7:
+                                minutes_for_end.Text = "30";
+                                break;
+                            case 8:
+                                minutes_for_end.Text = "35";
+                                break;
+                            case 9:
+                                minutes_for_end.Text = "40";
+                                break;
+                            case 10:
+                                minutes_for_end.Text = "45";
+                                break;
+                            case 11:
+                                minutes_for_end.Text = "45";
+                                break;
+                        }
                         break;
                 } 
             }
@@ -258,6 +312,25 @@ namespace WpfApp2
         private void Window_Closed(object sender, EventArgs e)
         {
             isClosed = true;
+        }
+
+        void TIMEWORK()
+        {
+            while (isClosed == false)
+            {
+                try
+                {
+                    Thread.Sleep(100);
+                    minutes_for_end.Dispatcher.Invoke((Action)(() =>
+                    {
+                        OUT(8);
+                    }));
+                }
+                catch
+                {
+
+                }
+            }
         }
     }
 }

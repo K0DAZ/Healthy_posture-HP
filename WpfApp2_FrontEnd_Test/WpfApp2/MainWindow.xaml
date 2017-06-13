@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-        Title="Здоровая осанка" Height="500" Width="700" Background="{x:Null}" WindowStyle="ThreeDBorderWindow" ResizeMode="NoResize" Loaded="Window_Loaded" Closed="Window_Closed">
+        Title="Здоровая осанка" Height="500" Width="700" Background="{x:Null}" ResizeMode="CanMinimize" Loaded="Window_Loaded" Closed="Window_Closed">
     <Grid>
         <Image Margin="-31.98,0,-17.52,0" Source="108533-Adobe_Illustrator-landscape-minimalism.png" Stretch="Fill"/>
         <Image Margin="-29.98,-11,144.48,191" Source="desktop_dialog.png" Stretch="Fill"/>
@@ -16,11 +16,11 @@
         </TextBlock>
         <TextBlock HorizontalAlignment="Left" Height="29" Margin="31,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115" FontWeight="Light"><Span Foreground="Black" FontSize="20" FontFamily="Segoe UI"><Run Text="Дистанция"/></Span></TextBlock>
         <TextBlock HorizontalAlignment="Left" Height="70" Margin="46,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="18"><Span Foreground="#FF95989A" FontFamily="Arial"><Run Text="На данный момент вы сидите"/></Span></TextBlock>
-        <TextBlock x:Name="Distance_range" HorizontalAlignment="Left" Height="58" Margin="226.188,67.627,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155.416" FontWeight="Medium" Foreground="#FFA00909" FontSize="40" FontFamily="Segoe UI" Text="Близко">
+        <TextBlock x:Name="Distance_range" HorizontalAlignment="Left" Height="58" Margin="195.168,68.733,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237.832" FontWeight="Medium" Foreground="#FFA00909" FontSize="40" FontFamily="Segoe UI" Text="Близко" TextAlignment="Center">
         </TextBlock>
-        <TextBlock x:Name="Distance_or_and" HorizontalAlignment="Left" Height="23" Margin="366,91.627,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" RenderTransformOrigin="0.833,0.259" Foreground="#FF95989A" FontSize="20" FontFamily="Arial" Text=" , но">
+        <TextBlock x:Name="Distance_or_and" HorizontalAlignment="Left" Height="23" Margin="231,137.567,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" RenderTransformOrigin="0.833,0.259" Foreground="#FF95989A" FontSize="20" FontFamily="Arial" Text="   но">
         </TextBlock>
-        <TextBlock x:Name="Distance_landing" HorizontalAlignment="Left" Height="70" Margin="266,112.837,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130.02" Foreground="#FF13A200" FontSize="40" Text="Ровно">
+        <TextBlock x:Name="Distance_landing" HorizontalAlignment="Left" Height="70" Margin="290.98,116.57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130.02" Foreground="#FF13A200" FontSize="40" Text="Ровно">
         </TextBlock>
         <TextBlock HorizontalAlignment="Left" Height="29" Margin="31,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="234" FontWeight="Light"><Span Foreground="#FF5C5A5A" FontSize="20" FontFamily="Segoe UI"><Run Text="Температура, влажность"/></Span></TextBlock>
         <TextBlock HorizontalAlignment="Left" Height="63" Margin="46,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="18"><Span Foreground="#FF95989A" FontFamily="Arial"><Run Text="На данный момент "/></Span></TextBlock>
@@ -40,8 +40,8 @@
         <TextBlock HorizontalAlignment="Left" Height="19" Margin="586,221.733,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="71" FontSize="16" FontWeight="Thin"><Run Foreground="#FF404040" Text="Монитора"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Height="29" Margin="522,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" FontWeight="Light" FontSize="14" TextAlignment="Center"><Run Text="В каком вы классе?"/></TextBlock>
         <Slider x:Name="slider1" HorizontalAlignment="Left" Margin="541.52,314.96,0,0" VerticalAlignment="Top" Width="97"/>
-        <Label x:Name="slider_age_text" Content="1" HorizontalAlignment="Left" Margin="585,284,0,0" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Height="37" Margin="528,351,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80.48" FontSize="14" FontWeight="Thin"><Run Text="До конца урока "/><Run Text="минут"/><Run Text=":"/></TextBlock>
+        <TextBlock x:Name="slider_age_text" Text="0" HorizontalAlignment="Left" Margin="585,284,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="age_text" HorizontalAlignment="Left" Height="58" Margin="525,342.893,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80.48" FontSize="13" FontWeight="Thin"><Run Text="Сидеть можно ("/><Run Text="минуты"/><Run Text="):"/></TextBlock>
         <TextBlock x:Name="minutes_for_end" HorizontalAlignment="Left" Height="26" Margin="621.272,354,0,0" TextWrapping="Wrap" Text="---" VerticalAlignment="Top" Width="27.52" FontSize="22" Foreground="#FFDE0000"/>
     </Grid>
 </Window>
