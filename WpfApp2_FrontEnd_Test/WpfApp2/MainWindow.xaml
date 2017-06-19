@@ -12,7 +12,7 @@
         <Image Margin="-29.98,199.5,144.48,-6" Source="desktop_dialog.png" Stretch="Fill"/>
         <Image Margin="469.02,-11,-31.02,-6" Source="desktop_dialog2.png" Stretch="Fill"/>
 
-        <TextBlock x:Name="CopyrightN" HorizontalAlignment="Left" Height="23" Margin="271,426,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" TextAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14" Text="© РГСУ. 2017 г." FontFamily="Segoe UI">
+        <TextBlock x:Name="CopyrightN" HorizontalAlignment="Left" Height="23" Margin="271,426,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" TextAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14" Text="© РГСУ. 2017 г." FontFamily="Segoe UI" MouseLeftButtonDown="CopyrightN_MouseLeftButtonDown" >
         </TextBlock>
         <TextBlock HorizontalAlignment="Left" Height="29" Margin="31,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115" FontWeight="Light"><Span Foreground="Black" FontSize="20" FontFamily="Segoe UI"><Run Text="Дистанция"/></Span></TextBlock>
         <TextBlock HorizontalAlignment="Left" Height="70" Margin="46,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="18"><Span Foreground="#FF95989A" FontFamily="Arial"><Run Text="На данный момент вы сидите"/></Span></TextBlock>

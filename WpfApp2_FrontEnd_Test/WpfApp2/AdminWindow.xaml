@@ -1,0 +1,57 @@
+﻿<Window x:Class="WpfApp2.AdminWindow"
+        WindowStyle="None"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="Здоровая осанка | Режим администратора" Height="550" Width="900" ResizeMode="CanMinimize">
+    <Grid>
+        <Image Margin="-31.98,0,-17.52,-27" Source="108533-Adobe_Illustrator-landscape-minimalism.png" Stretch="Fill"/>
+        <Image Margin="151,40,144.48,222.225" Source="desktop_dialog.png" Stretch="Fill"/>
+        <Image Margin="151,250.626,144.48,12.5" Source="desktop_dialog.png" Stretch="Fill"/>
+        <Image Margin="663,20,-31.02,-10" Source="desktop_dialog2.png" Stretch="Fill"/>
+        <Border Background="White" RenderTransformOrigin="0.5,0.5" Height="30" VerticalAlignment="Top" MouseLeftButtonDown="Border_MouseLeftButtonDown"/>
+        <TextBlock x:Name="CopyrightN" HorizontalAlignment="Left" Height="23" Margin="371,503.161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" TextAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14" Text="© РГСУ. 2017 г." FontFamily="Segoe UI" />
+        <TextBlock HorizontalAlignment="Left" Height="29" Margin="409,85.54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="99" FontWeight="Light"><Span Foreground="Black" FontSize="20" FontFamily="Segoe UI"><Run Text="Дистанция"/></Span></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="70" Margin="264,140.54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="18"><Span Foreground="#FF95989A" FontFamily="Arial"><Run Text="На данный момент вы сидите"/></Span></TextBlock>
+        <Border x:Name="border_exit" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="28.333" Margin="862.334,0.167,0,0" VerticalAlignment="Top" Width="32.666" Background="#FF9B0000" MouseEnter="border_exit_MouseEnter" MouseLeave="border_exit_MouseLeave" MouseDown="border_exit_MouseDown"/>
+        <TextBlock x:Name="Distance_range" HorizontalAlignment="Left" Height="58" Margin="413.168,123.273,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237.832" FontWeight="Medium" Foreground="#FFA00909" FontSize="40" FontFamily="Segoe UI" Text="Близко" TextAlignment="Center"/>
+        <TextBlock x:Name="Distance_or_and" HorizontalAlignment="Left" Height="23" Margin="449,192.107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" RenderTransformOrigin="0.833,0.259" Foreground="#FF95989A" FontSize="20" FontFamily="Arial" Text="   но"/>
+        <TextBlock x:Name="Distance_landing" HorizontalAlignment="Left" Height="70" Margin="508.98,171.11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130.02" Foreground="#FF13A200" FontSize="40" Text="Ровно"/>
+        <TextBlock HorizontalAlignment="Left" Height="29" Margin="343,297.416,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" FontWeight="Light"><Span Foreground="#FF5C5A5A" FontSize="20" FontFamily="Segoe UI"><Run Text="Температура, влажность"/></Span></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="63" Margin="244,364.893,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="18"><Span Foreground="#FF95989A" FontFamily="Arial"><Run Text="На данный момент "/></Span></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="19" Margin="398,408.893,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="16" FontWeight="Thin"><Span Foreground="#FF404040" FontFamily="Segoe UI"><Run Text="Температура"/></Span></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="37" Margin="551,408.893,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130.02" FontSize="16" FontWeight="Thin"><Span Foreground="#FF404040" FontFamily="Segoe UI"><Run Text="Влажность"/></Span></TextBlock>
+        <TextBlock x:Name="Temp" HorizontalAlignment="Left" Height="73" Margin="387,344.893,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="111" FontWeight="Thin" TextAlignment="Center" RenderTransformOrigin="0.1,0.534" Foreground="#FF005796" FontSize="45.3333333333333" Text="--°C"/>
+        <TextBlock x:Name="Humi" HorizontalAlignment="Left" Height="73" Margin="545,344.893,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" FontWeight="Thin" TextAlignment="Center" Foreground="#FF8F7D2C" FontSize="45.3333333333333" Text="--%"/>
+        <TextBlock HorizontalAlignment="Left" Height="29" Margin="731.333,59.893,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" FontWeight="Light"><Run FontSize="20" Text="Контрастность"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="58" Margin="723.333,114.893,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="47" FontWeight="Thin" TextAlignment="Justify"><Span Foreground="#FF95989A" FontFamily="Arial"><Run Text="На данный момент яркость"/></Span></TextBlock>
+        <TextBlock x:Name="contrast_room" HorizontalAlignment="Left" Height="73" Margin="775.333,108.893,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" FontWeight="Thin" TextAlignment="Center" Foreground="#FF005796" FontSize="45.3333333333333" Text="--%"/>
+        <TextBlock x:Name="contrast_display" HorizontalAlignment="Left" Height="73" Margin="775.333,188.626,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" FontWeight="Thin" TextAlignment="Center" Foreground="#FF005796" FontSize="45.3333333333333" Text="--%"/>
+        <TextBlock HorizontalAlignment="Left" Height="19" Margin="788.333,164.626,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" FontSize="16" FontWeight="Thin"><Run Foreground="#FF404040" Text="Комнаты"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="19" Margin="784.333,250.626,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="71" FontSize="16" FontWeight="Thin"><Run Foreground="#FF404040" Text="Монитора"/></TextBlock>
+        <Image Margin="-31.98,20,654.127,-10" Source="desktop_dialog2.png" Stretch="Fill"/>
+        <TextBlock HorizontalAlignment="Left" Height="29" Margin="51,59.893,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="98" FontWeight="Light"><Run FontSize="20" Text="Настройки"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="19" Margin="30,108.686,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" FontSize="16" FontWeight="Thin"><Run Foreground="#FF404040" Text="Автозагрузка:"/></TextBlock>
+        <Border x:Name="border_minim" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="28.333" Margin="827.097,0.167,0,0" VerticalAlignment="Top" Width="32.666" Background="#FF9B0000" MouseEnter="border_minim_MouseEnter" MouseLeave="border_minim_MouseLeave" MouseDown="border_minim_MouseDown"/>
+        <CheckBox x:Name="Autorun" Content="&#xA;" HorizontalAlignment="Left" Margin="147,112.587,0,0" VerticalAlignment="Top" Height="15.099" Checked="Autorun_Checked" Unchecked="Autorun_Unchecked"/>
+        <TextBlock HorizontalAlignment="Left" Height="19" Margin="29,140.686,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" FontSize="16" FontWeight="Thin"><Run Foreground="#FF404040" Text="-"/><Run Foreground="#FF404040" Text="Устройство"/></TextBlock>
+        <ComboBox x:Name="COMPort"  HorizontalAlignment="Left" Margin="51,207.54,0,0" VerticalAlignment="Top" Width="115.975"/>
+        <TextBlock HorizontalAlignment="Left" Height="37.08" Margin="51,170.46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85.707" FontWeight="Thin" TextAlignment="Justify" RenderTransformOrigin="0.887,0.635"><Run Foreground="#FF95989A" FontFamily="Arial" Text="Выберите порт устройства:"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="46" Margin="31,242.626,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137.975" FontSize="14" FontWeight="Thin"><Run Foreground="#FF404040" Text="-"/><Run Foreground="#FF404040" Text="Показатели"/><Run Foreground="#FF404040" Text=" "/><Run Foreground="#FF404040" Text="значений"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="17.21" Margin="32,271.416,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66.707" FontWeight="Thin" TextAlignment="Justify" RenderTransformOrigin="0.887,0.635"><Run Foreground="#FF95989A" FontFamily="Arial" Text="Близко:"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="17.21" Margin="32,300.461,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="73.374" FontWeight="Thin" TextAlignment="Justify" RenderTransformOrigin="0.5,0.5"><Run Foreground="#FF95989A" FontFamily="Arial" Text="Нормально:"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="17.21" Margin="31,330.675,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66.707" FontWeight="Thin" TextAlignment="Justify" RenderTransformOrigin="0.887,0.635"><Run Foreground="#FF95989A" FontFamily="Arial" Text="Далеко:"/></TextBlock>
+        <TextBox x:Name="dist_near" HorizontalAlignment="Left" Height="20.11" Margin="121.707,268.516,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="47.268"/>
+        <TextBox x:Name="dist_normal" HorizontalAlignment="Left" Height="20.11" Margin="121.707,297.561,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="47.268"/>
+        <TextBox x:Name="dist_far" HorizontalAlignment="Left" Height="20.11" Margin="121.707,327.775,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="47.268" RenderTransformOrigin="0.5,1.74"/>
+        <Button Content="Применить изменение" HorizontalAlignment="Left" Margin="31,367.943,0,0" VerticalAlignment="Top" Width="150.475" Height="26.117" Click="Button_Click"/>
+        <TextBlock HorizontalAlignment="Left" Height="58" Margin="720.333,289.356,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontWeight="Thin" TextAlignment="Right"><Run Foreground="#FF95989A" FontFamily="Arial" Text="На данный момент в программу пост"/><Run Foreground="#FF95989A" FontFamily="Arial" Text="у"/><Run Foreground="#FF95989A" FontFamily="Arial" Text="пают следующие данные"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="19" Margin="754.52,350.546,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88.813" FontSize="16" FontWeight="Thin" TextAlignment="Center"><Run Foreground="#FF404040" Text="1_"/><Run Foreground="#FF404040" Text="XYZ"/></TextBlock>
+        <Image Margin="872.5,8.518,15.5,529.482" Source="close.png" Stretch="Fill"/>
+        <Image Margin="837.333,19.518,50.667,529.482" Source="minimize.png" Stretch="Fill" OpacityMask="#FFA40303"/>
+        <TextBlock HorizontalAlignment="Left" Height="12" Margin="344.293,8.518,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215.707" FontWeight="Thin" TextAlignment="Center" RenderTransformOrigin="0.887,0.635" Foreground="#FFDC0000"><Run FontFamily="Arial" Text="Здоровая осанка"/></TextBlock>
+    </Grid>
+</Window>

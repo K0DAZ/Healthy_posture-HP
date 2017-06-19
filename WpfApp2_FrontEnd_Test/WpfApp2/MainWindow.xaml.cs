@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -24,6 +25,14 @@ namespace WpfApp2
         public MainWindow()
         {
             InitializeComponent();
+
+            if (IsRunAsAdmin == true)
+            {
+                AdminWindow w = new AdminWindow();
+                w.Show();
+                this.Close();
+            }
+
             System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
 
             timer.Tick += new EventHandler(timer1_Tick);
@@ -31,7 +40,18 @@ namespace WpfApp2
             timer.Start();
         }
 
+        internal bool IsRunAsAdmin
+        {
+            get
+            {
+                WindowsIdentity id = WindowsIdentity.GetCurrent();
+                WindowsPrincipal principal = new WindowsPrincipal(id);
+                return principal.IsInRole(WindowsBuiltInRole.Administrator);
+            }
+        }
+
         bool isClosed = false;
+        //NotifyIcon nIcon = new NotifyIcon();
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -73,6 +93,7 @@ namespace WpfApp2
         {
             Random r = new Random();
             Random z = new Random();
+            
             try
             {
                 switch (i)
@@ -331,6 +352,11 @@ namespace WpfApp2
 
                 }
             }
+        }
+
+        private void CopyrightN_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }
