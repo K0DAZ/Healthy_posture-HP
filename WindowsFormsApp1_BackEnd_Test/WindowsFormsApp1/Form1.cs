@@ -23,7 +23,7 @@ namespace WindowsFormsApp1
         
 
         
-
+        //открытия окон принажатии в меню пунктов, не используется
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form3 pr = new Form3();
@@ -41,9 +41,10 @@ namespace WindowsFormsApp1
             pr5.Show();
         }
 
+        //когда форма загружатеся
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            //обновление какие COM устройства есть
             foreach (string str in SerialPort.GetPortNames())
             {
                 MessageBox.Show(str);
@@ -52,7 +53,7 @@ namespace WindowsFormsApp1
 
             
 
-
+            //запуск потоков
             Thread myThread1 = new Thread(OutDist);
             Thread myThread2 = new Thread(OutTemp);
             Thread myThread3 = new Thread(OutHumi);
@@ -66,8 +67,9 @@ namespace WindowsFormsApp1
             myThread5.Start();
         }
 
-        bool triggerAutoStart=false;
+        bool triggerAutoStart=false; //включена ли автозагрузка, переключатель
 
+        //автозагрузка
         private void включитьToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (triggerAutoStart == false)
@@ -86,9 +88,11 @@ namespace WindowsFormsApp1
             }
         }
 
+        //некоторые настройки COM 
         string PortName;
         int BaudRate = 19200;
 
+        //инициализация подключения
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -109,6 +113,7 @@ namespace WindowsFormsApp1
             }
         }
 
+        //просчет степени горбатости
         int r = 0, s = 0;
         int dist1 = 0;
         int dist2 = 0;
@@ -118,6 +123,7 @@ namespace WindowsFormsApp1
             {
                 try
                 {
+                    //отделение данных из COM, проверка ID и затем использование данных для обработки
                     string rsp = label3.Text;
                     String[] outr = rsp.Split(new char[] { '_' }, StringSplitOptions.RemoveEmptyEntries);
                     if (Convert.ToInt32(outr[0]) == 1)
@@ -150,7 +156,7 @@ namespace WindowsFormsApp1
                 }
             }
         }
-
+        //дистанция
         void OutDist()
         {
             while (isClosed == false)
@@ -162,12 +168,13 @@ namespace WindowsFormsApp1
                     string rsp = label3.Text;
                     if (rsp.Contains("1_")) //иная вариация поиска индекса
                     {
-
+                        //отделение данных из COM, проверка ID и затем использование данных для обработки
                         String[] outr = rsp.Split(new char[] { '_' }, StringSplitOptions.RemoveEmptyEntries);
                         if (Convert.ToInt32(outr[0]) == 1)
                         {
                             int dist = Convert.ToInt32(outr[1]);
                             //MessageBox.Show(Convert.ToString(dist));
+                            //проверка условий
                             if (dist >= 1 && dist < 50)
                             {
                                 if (label4.InvokeRequired)
@@ -186,10 +193,6 @@ namespace WindowsFormsApp1
                         }
                     }
                 }
-                catch (ArgumentOutOfRangeException)
-                {
-                    //MessageBox.Show("аргументошибка1");
-                }
                 catch
                 {
 
@@ -197,15 +200,16 @@ namespace WindowsFormsApp1
 
             }
         }
-
+        //температура
         void OutTemp()
         {
             while (isClosed == false)
             {
-                //Thread.Sleep(1000);
+                //Thread.Sleep(1000); временные данные
                 //MessageBox.Show("work2");
                 try
                 {
+                    //отделение данных из COM, проверка ID и затем использование данных для обработки
                     string rsp2 = label3.Text;
                     String[] outr = rsp2.Split(new char[] { '_' }, StringSplitOptions.RemoveEmptyEntries);
                     if(Convert.ToInt32(outr[0]) == 2)
@@ -215,17 +219,13 @@ namespace WindowsFormsApp1
                             label6.Invoke(new Action(() => outp(2, tmp)));
                     }
                 }
-                catch (ArgumentOutOfRangeException)
-                {
-                    //MessageBox.Show("аргументошибка2");
-                }
                 catch
                 {
 
                 }
             }
         }
-
+        //влажность
         void OutHumi()
         {
             while (isClosed == false)
@@ -243,17 +243,13 @@ namespace WindowsFormsApp1
                             label8.Invoke(new Action(() => outp(3, hmt)));
                     }
                 }
-                catch (ArgumentOutOfRangeException)
-                {
-                    //MessageBox.Show("аргументошибка3");
-                }
                 catch
                 {
 
                 }
             }
         }
-
+        //вывод
         void outp(int i, int numberto_out)
         {
             try
@@ -275,6 +271,7 @@ namespace WindowsFormsApp1
                 if ((i == 4) && (numberto_out == 1))
                 {
                     label4.Text = "Близко";
+                    //вывод уведомлений в случае свернутого состояния
                     notifyIcon1.ShowBalloonTip(5000, "Здоровая осанка", "Вы сидите слишком близко", ToolTipIcon.Error);
                 }
                 if ((i== 4) && (numberto_out == 2))
@@ -301,6 +298,7 @@ namespace WindowsFormsApp1
             }
         }
 
+        //просто вывод значений COM поступающих данных
         void OutX()
         {
             while (isClosed == false)
@@ -313,10 +311,6 @@ namespace WindowsFormsApp1
                     label3.Invoke(new Action(()=> outp(1, 0) ));
 
                 }
-                catch (ArgumentOutOfRangeException)
-                {
-                    //MessageBox.Show("аргументошибка4");
-                }
                 catch
                 {
 
@@ -324,6 +318,7 @@ namespace WindowsFormsApp1
             }
         }
 
+        //не используется
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
             try
@@ -335,12 +330,13 @@ namespace WindowsFormsApp1
 
             }
         }
-
+        //меняем потоки
         private void timer1_Tick(object sender, EventArgs e)
         {
             Thread.Sleep(0);
         }
 
+        //проверка, ушла ли наша форма в минимальное состояние
         private void Form1_Resize(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Minimized)
@@ -350,6 +346,7 @@ namespace WindowsFormsApp1
             }
         }
 
+        //раскрываем форму из иконки-состояния
         private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
         {
             this.Show();
@@ -357,6 +354,7 @@ namespace WindowsFormsApp1
             notifyIcon1.Visible = false;
         }
 
+        //в случае если форма закрывается, закрываются и потоки
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             try

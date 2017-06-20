@@ -27,3 +27,4 @@ D:\Projects\Github\Healthy_posture-HP\WpfApp2_FrontEnd_Test\WpfApp2\obj\Debug\Wp
 D:\Projects\Github\Healthy_posture-HP\WpfApp2_FrontEnd_Test\WpfApp2\obj\Debug\WpfApp2.csproj.GenerateResource.Cache
 D:\Projects\Github\Healthy_posture-HP\WpfApp2_FrontEnd_Test\WpfApp2\obj\Debug\WpfApp2.exe
 D:\Projects\Github\Healthy_posture-HP\WpfApp2_FrontEnd_Test\WpfApp2\obj\Debug\WpfApp2.pdb
+D:\Projects\Github\Healthy_posture-HP\WpfApp2_FrontEnd_Test\WpfApp2\obj\Debug\WpfApp2.csprojResolveAssemblyReference.cache

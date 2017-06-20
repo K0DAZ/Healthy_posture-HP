@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Ports;
 using System.Linq;
 using System.Security.Principal;
 using System.Text;
@@ -25,14 +26,16 @@ namespace WpfApp2
         public MainWindow()
         {
             InitializeComponent();
-
+            //проверка администратор ли привелегии 
             if (IsRunAsAdmin == true)
             {
                 AdminWindow w = new AdminWindow();
                 w.Show();
                 this.Close();
             }
-
+            setup();
+            
+            //запуск таймера
             System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
 
             timer.Tick += new EventHandler(timer1_Tick);
@@ -40,6 +43,42 @@ namespace WpfApp2
             timer.Start();
         }
 
+        string COMPort;
+        string dist_far, dist_normal, dist_near;
+        //выше - настройки, ниже - данные для COM
+        string PortName;
+        int BaudRate = 19200;
+
+        //настройки программы
+        void setup()
+        {
+            dist_far = Properties.Settings.Default.dist_far;
+            dist_normal = Properties.Settings.Default.dist_normal;
+            dist_near = Properties.Settings.Default.dist_near;
+            COMPort = Properties.Settings.Default.COMPort;
+            
+        }
+        
+
+        //подключение к устройству посредством COM
+        void COMnetwork()
+        {
+            try
+            {
+                SerialPort serialPort1 = new SerialPort();
+                PortName = COMPort;
+                serialPort1.PortName = PortName;
+                serialPort1.BaudRate = BaudRate;
+                serialPort1.ReadTimeout = 1000;
+                serialPort1.Open();
+            }
+            catch
+            {
+
+            }
+        }
+
+        //проверка на использования администратора
         internal bool IsRunAsAdmin
         {
             get
@@ -51,10 +90,12 @@ namespace WpfApp2
         }
 
         bool isClosed = false;
-        //NotifyIcon nIcon = new NotifyIcon();
+        //NotifyIcon nIcon = new NotifyIcon(); уведомления, используются в другом месте
 
+            //когда окно загрузилось
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            //Создаем потоки для обновления информации параллельно давая программе работать и не зависать на конкретных моментах 
             Thread myThread1 = new Thread(OutDist);
             Thread myThread4 = new Thread(OutDist2);
             Thread myThread5 = new Thread(OutDist3);
@@ -66,6 +107,7 @@ namespace WpfApp2
             Thread myThread7 = new Thread(OutContrastDisplay);
             Thread myThread8 = new Thread(TIMEWORK);
 
+            //запускаем потоки
             myThread1.Start();
             myThread2.Start();
             myThread3.Start();
@@ -75,7 +117,7 @@ namespace WpfApp2
             myThread7.Start();
             myThread8.Start();
 
-
+            //ползунок возраста школьников, задача параметров
             slider1.Minimum = 1;
             slider1.Maximum = 11;
             slider1.Value = 1;
@@ -84,6 +126,7 @@ namespace WpfApp2
 
         }
 
+        //таймер, переключает потоки
         private void timer1_Tick(object sender, EventArgs e)
         {
             Thread.Sleep(0);
@@ -91,13 +134,15 @@ namespace WpfApp2
 
         void OUT(int i)
         {
+            //отображение случайных данных для проверки обновления формы
             Random r = new Random();
             Random z = new Random();
             
             try
             {
                 switch (i)
-                {
+                { 
+                    //дистанция
                     case 1:
                         switch (r.Next(3))
                         {
@@ -118,6 +163,7 @@ namespace WpfApp2
                                 break;
                         }
                         break;
+                        //кривость сидящего
                     case 2:
                         switch (z.Next(2))
                         {
@@ -130,6 +176,7 @@ namespace WpfApp2
                                 Distance_landing.Foreground = Brushes.Red;                                break;
                         }
                         break;
+                        // изменения фразы "но" и "и" в зависимости результатов двух выше
                     case 3:
                         if (((Distance_landing.Text == "Ровно") && (Distance_range.Text == "Близко")) || ((Distance_landing.Text == "Ровно") && (Distance_range.Text == "Далеко")))
                         {
@@ -144,18 +191,23 @@ namespace WpfApp2
                             Distance_or_and.Text = " и";
                         }
                         break;
+                        //температура
                     case 4:
                         Temp.Text = Convert.ToString(r.Next(100) + "°C");
                         break;
+                        //влажность
                     case 5:
                         Humi.Text = Convert.ToString(r.Next(100) + "%");
                         break;
+                        //контрастность комнаты
                     case 6:
                         contrast_room.Text = Convert.ToString(r.Next(100) + "%");
                         break;
+                        //контрастность дисплея
                     case 7:
                         contrast_display.Text = Convert.ToString(r.Next(100) + "%");
                         break;
+                        // вывод времени сколько сидеть сидящему в зависимости от возраста
                     case 8:
                         slider_age_text.Text = Convert.ToString(Math.Round(slider1.Value));
                         switch (Math.Round(slider1.Value))
@@ -203,6 +255,8 @@ namespace WpfApp2
             }
         }
 
+        //Очень странная фигня
+        //поток отвечающий за вывод дистанции, набор близко\нормально\далеко
         void OutDist()
         {
             while (isClosed == false)
@@ -221,6 +275,7 @@ namespace WpfApp2
                 }
             }
         }
+        //поток отвечающий за вывод дистанции, набор близко\нормально\далеко
         void OutDist2()
         {
             while (isClosed == false)
@@ -239,6 +294,7 @@ namespace WpfApp2
                 }
             }
         }
+        //поток отвечающий за вывод дистанции, набор близко\нормально\далеко
         void OutDist3()
         {
             while (isClosed == false)
@@ -257,7 +313,7 @@ namespace WpfApp2
                 }
             }
         }
-
+        //Температура
         void OutTemp()
         {
             while (isClosed == false)
@@ -276,6 +332,7 @@ namespace WpfApp2
                 }
             }
         }
+        //влажность
         void OutHumi()
         {
             while (isClosed == false)
@@ -294,6 +351,7 @@ namespace WpfApp2
                 }
             }
         }
+        //контрастность комнаты
         void OutContrastRoom()
         {
             while (isClosed == false)
@@ -312,6 +370,7 @@ namespace WpfApp2
                 }
             }
         }
+        //... дисплея
         void OutContrastDisplay()
         {
             while (isClosed == false) { 
@@ -330,11 +389,13 @@ namespace WpfApp2
         }
         }
 
+        //когда окно закрывается, потоки тоже, иначе они будут сидеть в процессах
         private void Window_Closed(object sender, EventArgs e)
         {
             isClosed = true;
         }
 
+        //вывод времени работы
         void TIMEWORK()
         {
             while (isClosed == false)
@@ -354,6 +415,7 @@ namespace WpfApp2
             }
         }
 
+        //не реализовано, по нажатию кнопкой мыши на копирайты переходит на сайт
         private void CopyrightN_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 

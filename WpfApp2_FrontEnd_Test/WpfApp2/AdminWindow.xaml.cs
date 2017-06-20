@@ -19,6 +19,7 @@ namespace WpfApp2
     /// </summary>
     public partial class AdminWindow : Window
     {
+        //Инициализация окна, выдача цвета кнопкам закрыть и свернуть, выгрузка настроек на программу
         public AdminWindow()
         {
             InitializeComponent();
@@ -32,6 +33,9 @@ namespace WpfApp2
             ACheck = Properties.Settings.Default.Autorun;
 
         }
+
+        //реализация и задача цвета кнопкам закрыть и свернуть(интерфейс самодельный)
+
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();// Для перемещение ока
@@ -67,6 +71,7 @@ namespace WpfApp2
             this.WindowState = WindowState.Minimized;
         }
 
+        //Кнопка применить изменения, сохраняет все данные а потом загружает в файл настроек
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.dist_far = dist_far.Text;
@@ -77,6 +82,8 @@ namespace WpfApp2
             Properties.Settings.Default.Save();
         }
 
+        //автозагрузка, записываем или убираем запись из реестра галочкой
+
         bool ACheck = false;
 
         private void Autorun_Checked(object sender, RoutedEventArgs e)
@@ -86,6 +93,8 @@ namespace WpfApp2
             var key = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run\", true);
             key.SetValue("HP", System.Reflection.Assembly.GetExecutingAssembly().Location);
         }
+
+        
 
         private void Autorun_Unchecked(object sender, RoutedEventArgs e)
         {

@@ -13,7 +13,7 @@
         <Image Margin="151,250.626,144.48,12.5" Source="desktop_dialog.png" Stretch="Fill"/>
         <Image Margin="663,20,-31.02,-10" Source="desktop_dialog2.png" Stretch="Fill"/>
         <Border Background="White" RenderTransformOrigin="0.5,0.5" Height="30" VerticalAlignment="Top" MouseLeftButtonDown="Border_MouseLeftButtonDown"/>
-        <TextBlock x:Name="CopyrightN" HorizontalAlignment="Left" Height="23" Margin="371,503.161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" TextAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14" Text="© РГСУ. 2017 г." FontFamily="Segoe UI" />
+        <TextBlock x:Name="CopyrightN" HorizontalAlignment="Left" Height="23" Margin="371,503.161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" TextAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14" Text="© ГБОУ Школа 2092" FontFamily="Segoe UI" />
         <TextBlock HorizontalAlignment="Left" Height="29" Margin="409,85.54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="99" FontWeight="Light"><Span Foreground="Black" FontSize="20" FontFamily="Segoe UI"><Run Text="Дистанция"/></Span></TextBlock>
         <TextBlock HorizontalAlignment="Left" Height="70" Margin="264,140.54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="18"><Span Foreground="#FF95989A" FontFamily="Arial"><Run Text="На данный момент вы сидите"/></Span></TextBlock>
         <Border x:Name="border_exit" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="28.333" Margin="862.334,0.167,0,0" VerticalAlignment="Top" Width="32.666" Background="#FF9B0000" MouseEnter="border_exit_MouseEnter" MouseLeave="border_exit_MouseLeave" MouseDown="border_exit_MouseDown"/>
